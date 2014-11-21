@@ -42,7 +42,7 @@ public class fmSobre extends javax.swing.JInternalFrame {
         jLabel2.setText("Programação Orientada a Objetos II");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setText("Desenvolvedor: Patrocínio e Ruan");
+        jLabel3.setText("Desenvolvedor: Patrocínio, Ruan, Vinicíus, Fabiana, Tayson e Gilvan.");
 
         btFechar.setText("Fechar");
         btFechar.addActionListener(new java.awt.event.ActionListener() {
@@ -78,11 +78,11 @@ public class fmSobre extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addGap(13, 13, 13)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btFechar)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
