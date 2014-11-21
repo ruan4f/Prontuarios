@@ -42,7 +42,7 @@ public class fmSobre extends javax.swing.JInternalFrame {
         jLabel2.setText("Programação Orientada a Objetos II");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setText("Desenvolvedor: Patrocínio e Ruan");
+        jLabel3.setText("Desenvolvedor: Patrocínio, Ruan, Vinicíus, Fabiana, Tayson e Gilvan.");
 
         btFechar.setText("Fechar");
         btFechar.addActionListener(new java.awt.event.ActionListener() {
