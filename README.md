@@ -1,6 +1,6 @@
 Prontuarios
 ===========
-Nome:                         RA:
+Nome:                         \nRA:
 
 Ruan Ferreira da Silva        5660120606
 
@@ -14,5 +14,5 @@ Tayson Rangel de Souza        5614124135
 
 Gilvan de Oliveira da Silva   5660124168
 
-
+===========
 Trabalho de POOII
