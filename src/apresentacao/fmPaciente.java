@@ -206,7 +206,7 @@ public class fmPaciente extends javax.swing.JInternalFrame {
                 .addComponent(btNovo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btSalvar)
-                .addGap(56, 56, 56)
+                .addGap(60, 60, 60)
                 .addComponent(btSair)
                 .addGap(74, 74, 74))
         );

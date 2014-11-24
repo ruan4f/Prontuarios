@@ -112,7 +112,7 @@ public class fmUsuario extends javax.swing.JInternalFrame {
             }
         });
 
-        btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Exit-32.png"))); // NOI18N
+        btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Cancel-32.png"))); // NOI18N
         btSair.setText("Sair");
         btSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,10 +129,10 @@ public class fmUsuario extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(btSalvar)
-                .addGap(29, 29, 29)
+                .addGap(27, 27, 27)
                 .addComponent(btNovo)
+                .addGap(31, 31, 31)
+                .addComponent(btSalvar)
                 .addGap(27, 27, 27)
                 .addComponent(btSair)
                 .addContainerGap(30, Short.MAX_VALUE))
@@ -144,10 +144,10 @@ public class fmUsuario extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btSalvar)
                     .addComponent(btNovo)
-                    .addComponent(btSair))
-                .addContainerGap(35, Short.MAX_VALUE))
+                    .addComponent(btSair)
+                    .addComponent(btSalvar))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();

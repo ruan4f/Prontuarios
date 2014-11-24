@@ -38,9 +38,9 @@ public class fmPrincipal extends javax.swing.JFrame {
 
         jToolBar1 = new javax.swing.JToolBar();
         btPaciente = new javax.swing.JButton();
-        btSair = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        btSair = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
         laUsuario = new javax.swing.JLabel();
@@ -80,18 +80,6 @@ public class fmPrincipal extends javax.swing.JFrame {
         });
         jToolBar1.add(btPaciente);
 
-        btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Exit-32.png"))); // NOI18N
-        btSair.setToolTipText("Sair");
-        btSair.setFocusable(false);
-        btSair.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btSair.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSairActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(btSair);
-
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/report-32.png"))); // NOI18N
         jButton1.setToolTipText("Cadastrar Fixas");
         jButton1.setFocusable(false);
@@ -110,6 +98,18 @@ public class fmPrincipal extends javax.swing.JFrame {
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButton2);
+
+        btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Exit-32.png"))); // NOI18N
+        btSair.setToolTipText("Sair");
+        btSair.setFocusable(false);
+        btSair.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btSair.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSairActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btSair);
 
         laUsuario.setText("Bem vindo");
 

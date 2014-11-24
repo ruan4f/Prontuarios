@@ -183,7 +183,7 @@ public class fmFichas extends javax.swing.JInternalFrame {
             }
         });
 
-        btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Exit-32.png"))); // NOI18N
+        btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Cancel-32.png"))); // NOI18N
         btSair.setText("Sair");
         btSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,13 +199,13 @@ public class fmFichas extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(76, Short.MAX_VALUE)
                 .addComponent(btBuscarPaciente)
-                .addGap(58, 58, 58)
-                .addComponent(btSalvar)
-                .addGap(67, 67, 67)
+                .addGap(57, 57, 57)
                 .addComponent(btNovo)
+                .addGap(68, 68, 68)
+                .addComponent(btSalvar)
                 .addGap(62, 62, 62)
                 .addComponent(btSair)
                 .addGap(96, 96, 96))
@@ -218,10 +218,10 @@ public class fmFichas extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btBuscarPaciente)
-                    .addComponent(btSalvar)
                     .addComponent(btNovo)
-                    .addComponent(btSair))
-                .addContainerGap(47, Short.MAX_VALUE))
+                    .addComponent(btSair)
+                    .addComponent(btSalvar))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
