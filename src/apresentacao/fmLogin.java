@@ -21,6 +21,8 @@ public class fmLogin extends javax.swing.JFrame {
      */
     public fmLogin() {
         initComponents();
+        
+        getRootPane().setDefaultButton(btLogin); // Para poder teclar enter e não precisar ir ao botao
     }
 
     /**
