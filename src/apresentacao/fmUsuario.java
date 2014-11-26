@@ -36,20 +36,37 @@ public class fmUsuario extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
-        txtSenha = new javax.swing.JTextField();
-        txtSenhaRepetida = new javax.swing.JTextField();
         cbTipo = new javax.swing.JComboBox();
+        txtSenha = new javax.swing.JPasswordField();
+        txtSenhaRepetida = new javax.swing.JPasswordField();
         btSalvar = new javax.swing.JButton();
         btNovo = new javax.swing.JButton();
         btSair = new javax.swing.JButton();
 
         setClosable(true);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados"));
 
-        jLabel1.setText("Usuário:");
+        jLabel1.setText("Crie um Usuário:");
 
-        jLabel2.setText("Senha:");
+        jLabel2.setText("Crie uma Senha:");
 
         jLabel3.setText("Repita a Senha:");
 
@@ -72,29 +89,28 @@ public class fmUsuario extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtUsuario)
                     .addComponent(txtSenha)
-                    .addComponent(txtSenhaRepetida)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(cbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(txtSenhaRepetida))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtSenhaRepetida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(cbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -135,7 +151,7 @@ public class fmUsuario extends javax.swing.JInternalFrame {
                 .addComponent(btSalvar)
                 .addGap(27, 27, 27)
                 .addComponent(btSair)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,7 +163,7 @@ public class fmUsuario extends javax.swing.JInternalFrame {
                     .addComponent(btNovo)
                     .addComponent(btSair)
                     .addComponent(btSalvar))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -160,6 +176,25 @@ public class fmUsuario extends javax.swing.JInternalFrame {
 
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
         // TODO add your handling code here:
+        habilitar(true);//Habilitar componentes
+        limpar(); //Preparamos os componentes para inserção de dados 
+    }//GEN-LAST:event_btNovoActionPerformed
+
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        // TODO add your handling code here:
+        habilitar(false);//Desabilitar os componentes
+        limpar();//Limpar os componentes
+    }//GEN-LAST:event_formInternalFrameOpened
+
+    private void habilitar(boolean valor){
+	txtUsuario.setEnabled(valor);
+	txtSenha.setEnabled(valor);
+	txtSenhaRepetida.setEnabled(valor);
+	cbTipo.setEnabled(valor);
+	btSalvar.setEnabled(valor);
+    }
+    
+    private void limpar(){
         Component components[] = jPanel1.getComponents();  
         for (Component component : components)  
         {  
@@ -167,9 +202,9 @@ public class fmUsuario extends javax.swing.JInternalFrame {
             {  
                 ((JTextField)component).setText(null);  
             }  
-        } 
-    }//GEN-LAST:event_btNovoActionPerformed
-
+        }
+        cbTipo.setSelectedIndex(0);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btNovo;
@@ -181,8 +216,8 @@ public class fmUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtSenha;
-    private javax.swing.JTextField txtSenhaRepetida;
+    private javax.swing.JPasswordField txtSenha;
+    private javax.swing.JPasswordField txtSenhaRepetida;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
