@@ -30,8 +30,8 @@ public class PacienteDAO implements IPacienteDAO{
     public void adiciona(Paciente paciente) {
         //Criamos o comando sql para inserção de dados na tabela paciente
         String sql = "insert into paciente " + 
-                "(prontuarios, nome, nome_mae, endereco, data_nascimento, estado_civil, cor, telefone, fotografia) " +
-                "values (?,?,?,?)";
+                "(prontuario, nome, nome_mae, data_nascimento, estado_civil, cor, telefone, fotografia) " +
+                "values(?,?,?,?)";
         
         try{
             //Prepared statement para inserção
