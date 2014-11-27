@@ -29,9 +29,9 @@ public class PacienteDAO implements IPacienteDAO{
     @Override
     public void adiciona(Paciente paciente) {
         //Criamos o comando sql para inserção de dados na tabela paciente
-        String sql = "insert into paciente " + 
+        String sql = "INSERT INTO paciente " + 
                 "(prontuario, nome, nome_mae, data_nascimento, estado_civil, cor, telefone, fotografia) " +
-                "values(?,?,?,?)";
+                "values(?,?,?,?,?,?,?,?)";
         
         try{
             //Prepared statement para inserção
