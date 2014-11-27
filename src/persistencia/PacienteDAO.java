@@ -42,10 +42,10 @@ public class PacienteDAO implements IPacienteDAO{
             stmt.setString(2,paciente.getNome());
             stmt.setString(3,paciente.getNomeMae());
             stmt.setDate(4, new Date(paciente.getDataNascimento().getTimeInMillis()));
-            stmt.setString(5,paciente.getNome());
-            stmt.setString(6,paciente.getNome());
-            stmt.setString(7,paciente.getNome());
-            stmt.setString(8,paciente.getNome());
+            stmt.setString(5,paciente.getEstadoCivil());
+            stmt.setString(6,paciente.getCor());
+            stmt.setString(7,paciente.getTelefone());
+            stmt.setString(8,paciente.getFotografia());
             
             //Executa
             stmt.execute();
