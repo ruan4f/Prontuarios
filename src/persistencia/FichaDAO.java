@@ -47,7 +47,7 @@ public class FichaDAO implements IFichaDAO{
             stmt.setString(7,ficha.getMamografia());
             stmt.setString(8,ficha.getProtese());
             stmt.setString(9,ficha.getAlteracaoMamilo());
-            stmt.setString(9,ficha.getInformacoes());
+            stmt.setString(10,ficha.getInformacoes());
             
             //Executa
             stmt.execute();
