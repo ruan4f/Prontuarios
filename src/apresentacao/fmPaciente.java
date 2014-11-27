@@ -9,12 +9,24 @@ package apresentacao;
 import java.awt.Component;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import negocio.Paciente;
+import persistencia.IPacienteDAO;
+import persistencia.PacienteDAO;
 
 /**
  *
@@ -221,6 +233,11 @@ public class fmPaciente extends javax.swing.JInternalFrame {
 
         btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Save_32.png"))); // NOI18N
         btSalvar.setText("Salvar");
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarActionPerformed(evt);
+            }
+        });
 
         btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Cancel-32.png"))); // NOI18N
         btSair.setText("Sair");
@@ -330,6 +347,61 @@ public class fmPaciente extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btUploadActionPerformed
 
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        // TODO add your handling code here:
+        int valor = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja salvar?","Sistema de Prontuários Médicos", 1);
+        if(valor == 0){
+            //recuperar os dados inseridos
+            Paciente paciente = new Paciente();
+            paciente.setProntuario(txtProntuario.getText());
+            paciente.setNome(txtNome.getText());
+            paciente.setNomeMae(txtNomeMae.getText());
+            
+            //Tratando a data
+            try{
+                SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy");
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(data.parse(txtData.getText()));
+                paciente.setDataNascimento(cal);
+            }catch(ParseException e){
+                System.out.println(e);
+            }
+            
+            paciente.setEstadoCivil(cbEstadoCivil.getSelectedItem().toString());
+            paciente.setCor(cbCor.getSelectedItem().toString());
+            paciente.setTelefone(txtTelefone.getText());
+            //Movemos a foto para um diretorio especifico C:/fotos/
+            String novoNomeFoto = txtNome.getText().replaceAll(" ", "") + txtNome.getText().hashCode()+".png";
+            File urlFoto = new File("C:/Fotos/" + novoNomeFoto);
+            try{
+                copiarArquivo(arquivoFoto,urlFoto);//método copiar arquivo (origem,destino)
+            }catch(IOException ex){
+                System.out.println("Não foi possível mover o arquivo, " + ex);
+            }
+            
+            paciente.setFotografia(urlFoto.getPath());
+            //gravando os dados
+            IPacienteDAO dao = new PacienteDAO();
+            dao.adiciona(paciente);
+            JOptionPane.showMessageDialog(null, "Os dados foram gravados com sucesso.");
+            //Limpar o formulário
+            limpar();
+            habilitar(false);
+        }
+    }//GEN-LAST:event_btSalvarActionPerformed
+
+    private void copiarArquivo(File origem, File destino) throws IOException {
+        InputStream in = new FileInputStream(origem);
+        OutputStream out = new FileOutputStream(destino);
+        byte[] buf = new byte[1024];
+        int len;
+        while((len = in.read(buf)) > 0){
+            out.write(buf, 0, len);
+        }
+        in.close();
+        out.close();
+    }
+    
     private void habilitar(boolean valor){
 	txtProntuario.setEnabled(valor);
 	txtNome.setEnabled(valor);
