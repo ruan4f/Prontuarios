@@ -5,10 +5,18 @@
  */
 package persistencia;
 
+import java.util.List;
+import negocio.*;
+
 /**
  *
  * @author Ramon
  */
 public interface IFichaDAO {
-    
+
+    public void adiciona(Ficha ficha);
+    public void altera(Ficha ficha);
+    public void remove(int id);
+    public List<Ficha> listarTodos();
+    public Ficha getByID(int id);
 }
