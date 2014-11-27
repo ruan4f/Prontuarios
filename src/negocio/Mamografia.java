@@ -12,8 +12,8 @@ package negocio;
  */
 public class Mamografia {
     //Declaração de Atributos
-    private long id;
-    private long idFicha;
+    private Long id;
+    private Long idFicha;
     private String posicao;
     private String imagem;
     
@@ -22,28 +22,28 @@ public class Mamografia {
     /**
      * @return the id
      */
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     /**
      * @return the idFicha
      */
-    public long getIdFicha() {
+    public Long getIdFicha() {
         return idFicha;
     }
 
     /**
      * @param idFicha the idFicha to set
      */
-    public void setIdFicha(long idFicha) {
+    public void setIdFicha(Long idFicha) {
         this.idFicha = idFicha;
     }
 

@@ -14,7 +14,7 @@ import java.util.Calendar;
  */
 public class Paciente {
     //Declaração de Atributos
-    private long id;
+    private Long id;
     private String prontuario;
     private String nome;
     private String nomeMae;
@@ -29,14 +29,14 @@ public class Paciente {
     /**
      * @return the id
      */
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

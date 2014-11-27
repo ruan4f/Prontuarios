@@ -17,8 +17,8 @@ import java.util.Calendar;
  */
 public class Ficha {
     //Declaração de Atributos
-    private long id;
-    private long idPaciente;
+    private Long id;
+    private Long idPaciente;
     private Calendar data;
     private String queixas;
     private String sintomas;
@@ -33,28 +33,28 @@ public class Ficha {
     /**
      * @return the id
      */
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     /**
      * @return the idPaciente
      */
-    public long getIdPaciente() {
+    public Long getIdPaciente() {
         return idPaciente;
     }
 
     /**
      * @param idPaciente the idPaciente to set
      */
-    public void setIdPaciente(long idPaciente) {
+    public void setIdPaciente(Long idPaciente) {
         this.idPaciente = idPaciente;
     }
 
