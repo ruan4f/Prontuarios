@@ -7,6 +7,13 @@
 package apresentacao;
 
 import java.awt.Component;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
@@ -14,7 +21,9 @@ import javax.swing.JTextField;
  * @author cpl.5660120606
  */
 public class fmPaciente extends javax.swing.JInternalFrame {
-
+    
+    File arquivoFoto = null;//Foi adicionado o atributo arquivoFotopara armazenar temporalmente a urlda foto.
+    
     /**
      * Creates new form fmPaciente
      */
@@ -114,6 +123,11 @@ public class fmPaciente extends javax.swing.JInternalFrame {
 
         btUpload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Refresh-32.png"))); // NOI18N
         btUpload.setText("Upload");
+        btUpload.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btUploadActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -286,6 +300,35 @@ public class fmPaciente extends javax.swing.JInternalFrame {
         habilitar(false);//Desabilitar os componentes
         limpar();//Limpar os componentes
     }//GEN-LAST:event_formInternalFrameOpened
+
+    
+    
+    private void btUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btUploadActionPerformed
+        // TODO add your handling code here:
+        //Abre uma janela para procurar a foto
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Escolha uma foto");
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        //após selecionar o arquivo
+        int returnVal = fileChooser.showOpenDialog(this);
+        if(returnVal == JFileChooser.APPROVE_OPTION){
+            arquivoFoto = fileChooser.getSelectedFile();
+            BufferedImage bi;
+            try{
+                //mostrar a imgame no painel
+                bi = ImageIO.read(arquivoFoto);
+                JLabel imgLabel = new JLabel(new ImageIcon(bi));
+                imgLabel.setSize(paFoto.getSize());
+                paFoto.add(imgLabel);
+                paFoto.revalidate();
+                paFoto.repaint();
+            }catch(IOException e){
+                System.out.println("houve um erro ao carregar a foto!");
+            }
+            this.pack();
+        }
+        
+    }//GEN-LAST:event_btUploadActionPerformed
 
     private void habilitar(boolean valor){
 	txtProntuario.setEnabled(valor);
