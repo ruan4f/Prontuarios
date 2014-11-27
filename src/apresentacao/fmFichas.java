@@ -6,9 +6,6 @@
 package apresentacao;
 
 import java.awt.Component;
-import javax.swing.JComboBox;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**

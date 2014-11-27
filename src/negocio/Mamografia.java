@@ -18,4 +18,60 @@ public class Mamografia {
     private String imagem;
     
     //Declaração de Getters e Setters
+
+    /**
+     * @return the id
+     */
+    public long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the idFicha
+     */
+    public long getIdFicha() {
+        return idFicha;
+    }
+
+    /**
+     * @param idFicha the idFicha to set
+     */
+    public void setIdFicha(long idFicha) {
+        this.idFicha = idFicha;
+    }
+
+    /**
+     * @return the posicao
+     */
+    public String getPosicao() {
+        return posicao;
+    }
+
+    /**
+     * @param posicao the posicao to set
+     */
+    public void setPosicao(String posicao) {
+        this.posicao = posicao;
+    }
+
+    /**
+     * @return the imagem
+     */
+    public String getImagem() {
+        return imagem;
+    }
+
+    /**
+     * @param imagem the imagem to set
+     */
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
 }
