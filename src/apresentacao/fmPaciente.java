@@ -10,7 +10,6 @@ import java.awt.Component;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -412,6 +411,7 @@ public class fmPaciente extends javax.swing.JInternalFrame {
 	cbEstadoCivil.setEnabled(valor);
 	btSalvar.setEnabled(valor);
 	btUpload.setEnabled(valor);
+        txtProntuario.requestFocus();
     }
     
     private void limpar(){

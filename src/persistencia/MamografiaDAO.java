@@ -5,48 +5,47 @@
  */
 package persistencia;
 
-import java.util.List;
-import negocio.Paciente;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Date;
+import java.util.List;
+import negocio.Mamografia;
 
 /**
  *
  * @author Ramon
  */
-public class PacienteDAO implements IPacienteDAO{
+public class MamografiaDAO implements IMamografiaDAO{
     
     //a conexão com o banco de dados
     private Connection connection;
     
     //Construtor
-    public PacienteDAO(){
+
+    /**
+     *
+     */
+        public MamografiaDAO(){
         this.connection = new ConFactory().getConnection();
     }
     
     @Override
-    public void adiciona(Paciente paciente) {
+    public void adiciona(Mamografia mamografia) {
         //Criamos o comando sql para inserção de dados na tabela paciente
-        String sql = "INSERT INTO paciente " + 
-                "(prontuario, nome, nome_mae, data_nascimento, estado_civil, cor, telefone, fotografia) " +
-                "values(?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO mamografia " + 
+                "(idficha, posicao, imagem) " +
+                "values(?,?,?)";
         
         try{
             //Prepared statement para inserção
             PreparedStatement stmt = connection.prepareStatement(sql);
             
             //Seta os valores
-            stmt.setString(1,paciente.getProntuario());
-            stmt.setString(2,paciente.getNome());
-            stmt.setString(3,paciente.getNomeMae());
-            stmt.setDate(4, new Date(paciente.getDataNascimento().getTimeInMillis()));
-            stmt.setString(5,paciente.getEstadoCivil());
-            stmt.setString(6,paciente.getCor());
-            stmt.setString(7,paciente.getTelefone());
-            stmt.setString(8,paciente.getFotografia());
-            
+            stmt.setString(1,mamografia.getIdFicha().toString());
+            stmt.setString(2,mamografia.getPosicao());
+            stmt.setString(3,mamografia.getImagem());
+                        
             //Executa
             stmt.execute();
             stmt.close();
@@ -54,10 +53,11 @@ public class PacienteDAO implements IPacienteDAO{
         }catch(SQLException e){
             throw new RuntimeException(e);
         }
+        
     }
 
     @Override
-    public void altera(Paciente paciente) {
+    public void altera(Mamografia mamografia) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -67,12 +67,12 @@ public class PacienteDAO implements IPacienteDAO{
     }
 
     @Override
-    public List<Paciente> listarTodos() {
+    public List<Mamografia> listarTodos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Paciente getByID(int id) {
+    public Mamografia getByID(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

@@ -89,8 +89,8 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="txtPaciente" min="-2" pref="400" max="-2" attributes="0"/>
-                      <Component id="cbData" min="-2" pref="153" max="-2" attributes="0"/>
                       <Component id="txtQueixas" alignment="0" min="-2" pref="400" max="-2" attributes="0"/>
+                      <Component id="cbData" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btBuscarPaciente" min="-2" pref="118" max="-2" attributes="0"/>

@@ -5,47 +5,46 @@
  */
 package persistencia;
 
-import java.util.List;
-import negocio.Paciente;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Date;
+import java.util.List;
+import negocio.Usuario;
 
 /**
  *
  * @author Ramon
  */
-public class PacienteDAO implements IPacienteDAO{
+public class UsuarioDAO implements IUsuarioDAO{
     
     //a conexão com o banco de dados
     private Connection connection;
     
     //Construtor
-    public PacienteDAO(){
+
+    /**
+     *
+     */
+        public UsuarioDAO(){
         this.connection = new ConFactory().getConnection();
     }
     
     @Override
-    public void adiciona(Paciente paciente) {
+    public void adiciona(Usuario usuario) {
         //Criamos o comando sql para inserção de dados na tabela paciente
-        String sql = "INSERT INTO paciente " + 
-                "(prontuario, nome, nome_mae, data_nascimento, estado_civil, cor, telefone, fotografia) " +
-                "values(?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO usuario " + 
+                "(usuario, senha, tipo) " +
+                "values(?,?,?)";
         
         try{
             //Prepared statement para inserção
             PreparedStatement stmt = connection.prepareStatement(sql);
             
             //Seta os valores
-            stmt.setString(1,paciente.getProntuario());
-            stmt.setString(2,paciente.getNome());
-            stmt.setString(3,paciente.getNomeMae());
-            stmt.setDate(4, new Date(paciente.getDataNascimento().getTimeInMillis()));
-            stmt.setString(5,paciente.getEstadoCivil());
-            stmt.setString(6,paciente.getCor());
-            stmt.setString(7,paciente.getTelefone());
-            stmt.setString(8,paciente.getFotografia());
+            stmt.setString(1,usuario.getUsuario());
+            stmt.setString(2,usuario.getSenha());
+            stmt.setString(3,usuario.getTipo());
             
             //Executa
             stmt.execute();
@@ -57,7 +56,7 @@ public class PacienteDAO implements IPacienteDAO{
     }
 
     @Override
-    public void altera(Paciente paciente) {
+    public void altera(Usuario usuario) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -67,12 +66,12 @@ public class PacienteDAO implements IPacienteDAO{
     }
 
     @Override
-    public List<Paciente> listarTodos() {
+    public List<Usuario> listarTodos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Paciente getByID(int id) {
+    public Usuario getByID(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

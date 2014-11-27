@@ -6,7 +6,11 @@
 package apresentacao;
 
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import negocio.Usuario;
+import persistencia.IUsuarioDAO;
+import persistencia.UsuarioDAO;
 
 /**
  *
@@ -86,14 +90,12 @@ public class fmUsuario extends javax.swing.JInternalFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtUsuario)
-                    .addComponent(txtSenha)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(cbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(txtSenhaRepetida))
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                    .addComponent(cbTipo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSenhaRepetida, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtUsuario))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,6 +121,11 @@ public class fmUsuario extends javax.swing.JInternalFrame {
 
         btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Save_32.png"))); // NOI18N
         btSalvar.setText("Salvar");
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarActionPerformed(evt);
+            }
+        });
 
         btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/new-32.png"))); // NOI18N
         btNovo.setText("Novo");
@@ -151,7 +158,7 @@ public class fmUsuario extends javax.swing.JInternalFrame {
                 .addComponent(btSalvar)
                 .addGap(27, 27, 27)
                 .addComponent(btSair)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,12 +193,41 @@ public class fmUsuario extends javax.swing.JInternalFrame {
         limpar();//Limpar os componentes
     }//GEN-LAST:event_formInternalFrameOpened
 
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        // TODO add your handling code here:
+        if(txtSenha.getText().equals(txtSenhaRepetida.getText())){
+            int valor = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja salvar?","Sistema de Prontuários Médicos", 1);
+            if(valor == 0){
+                //recuperar os dados inseridos
+                Usuario usuario = new Usuario();
+                usuario.setUsuario(txtUsuario.getText());
+                usuario.setSenha(txtSenha.getText());
+                usuario.setTipo(cbTipo.getSelectedItem().toString());
+
+                //gravando os dados
+                IUsuarioDAO dao = new UsuarioDAO();
+                dao.adiciona(usuario);
+                JOptionPane.showMessageDialog(null, "Os dados foram gravados com sucesso.");
+                //Limpar o formulário
+                limpar();
+                habilitar(false);
+            }            
+        }else{
+            JOptionPane.showMessageDialog(null, "Senha Diferentes. Por favor digite novamente!","Sistema de Prontuários Médicos", 1);
+            txtSenha.setText(null);
+            txtSenhaRepetida.setText(null);
+            txtSenha.requestFocus();
+        }
+        
+    }//GEN-LAST:event_btSalvarActionPerformed
+
     private void habilitar(boolean valor){
 	txtUsuario.setEnabled(valor);
 	txtSenha.setEnabled(valor);
 	txtSenhaRepetida.setEnabled(valor);
 	cbTipo.setEnabled(valor);
 	btSalvar.setEnabled(valor);
+        txtUsuario.requestFocus();
     }
     
     private void limpar(){

@@ -6,8 +6,6 @@
 package apresentacao;
 
 import java.awt.Component;
-import java.util.Date;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
@@ -137,8 +135,8 @@ public class fmFichas extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbData, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtQueixas, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtQueixas, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbData, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -351,6 +349,7 @@ public class fmFichas extends javax.swing.JInternalFrame {
         txtInformacoes.setEnabled(valor);
 	btSalvar.setEnabled(valor);
         btBuscarPaciente.setEnabled(valor);
+        txtPaciente.requestFocus();
     }
     
     private void limpar(){
@@ -362,7 +361,7 @@ public class fmFichas extends javax.swing.JInternalFrame {
                 ((JTextField)component).setText(null);  
             }  
         }
-        cbData.setDateFormatString(null);
+        cbData.setCalendar(null);
         cbHabitosAlimentares.setSelectedIndex(0);
         cbCancerFamilia.setSelectedIndex(0);
         cbMamografia.setSelectedIndex(0);
