@@ -6,6 +6,7 @@
 package apresentacao;
 
 import java.awt.Component;
+import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -56,10 +57,10 @@ public class fmFichas extends javax.swing.JInternalFrame {
         cbMamografia = new javax.swing.JComboBox();
         cbProtese = new javax.swing.JComboBox();
         cbAlteracoes = new javax.swing.JComboBox();
-        cbData = new calendario.JCalendar(false);
         btBuscarPaciente = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         cbCancerFamilia = new javax.swing.JComboBox();
+        cbData = new com.toedter.calendar.JDateChooser();
         btSalvar = new javax.swing.JButton();
         btNovo = new javax.swing.JButton();
         btSair = new javax.swing.JButton();
@@ -140,10 +141,10 @@ public class fmFichas extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel4))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cbData, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
                                     .addComponent(txtQueixas)
-                                    .addComponent(txtSintomas)))
+                                    .addComponent(txtSintomas)
+                                    .addComponent(cbData, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGap(46, 46, 46)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -153,25 +154,29 @@ public class fmFichas extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(cbAlteracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cbAlteracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cbProtese, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(0, 0, Short.MAX_VALUE)))))
                         .addGap(18, 18, 18)
                         .addComponent(btBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel11)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(cbMamografia, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(21, 21, 21)
+                                        .addComponent(jLabel11))
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addContainerGap()
                                     .addComponent(jLabel5)))
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cbHabitosAlimentares, 0, 163, Short.MAX_VALUE)
-                            .addComponent(cbProtese, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbCancerFamilia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbMamografia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(cbHabitosAlimentares, 0, 163, Short.MAX_VALUE)
+                                .addComponent(cbCancerFamilia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -184,27 +189,27 @@ public class fmFichas extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(11, 11, 11)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cbData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))))
+                            .addComponent(jLabel2)
+                            .addComponent(cbData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtQueixas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(txtSintomas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSintomas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5)
-                    .addComponent(cbHabitosAlimentares, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbHabitosAlimentares, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbCancerFamilia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbMamografia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
@@ -213,9 +218,9 @@ public class fmFichas extends javax.swing.JInternalFrame {
                     .addComponent(cbProtese, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(cbAlteracoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbAlteracoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
@@ -315,16 +320,11 @@ public class fmFichas extends javax.swing.JInternalFrame {
             Ficha ficha = new Ficha();
             
             ficha.setIdPaciente(Long.parseLong(txtPaciente.getText()));
-            
-            //Tratando a data
-            try{
-                SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy");
-                Calendar cal = Calendar.getInstance();
-                cal.setTime(data.parse(cbData.getSelectedItem().toString()));
-                ficha.setData(cal);
-            }catch(ParseException e){
-                System.out.println(e);
-            }
+      
+            SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy");
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(cbData.getCalendar().getTime());
+            ficha.setData(cal);
             
             ficha.setQueixas(txtQueixas.getText());
             ficha.setSintomas(txtSintomas.getText());
@@ -351,6 +351,7 @@ public class fmFichas extends javax.swing.JInternalFrame {
 	txtQueixas.setEnabled(valor);
 	txtSintomas.setEnabled(valor);
 	cbHabitosAlimentares.setEnabled(valor);
+        cbCancerFamilia.setEnabled(valor);
         cbMamografia.setEnabled(valor);
         cbProtese.setEnabled(valor);
         cbAlteracoes.setEnabled(valor);
@@ -368,8 +369,9 @@ public class fmFichas extends javax.swing.JInternalFrame {
                 ((JTextField)component).setText(null);  
             }  
         }
-        cbData.setSelectedIndex(-1);
+        cbData.setDateFormatString(null);
         cbHabitosAlimentares.setSelectedIndex(0);
+        cbCancerFamilia.setSelectedIndex(0);
         cbMamografia.setSelectedIndex(0);
         cbProtese.setSelectedIndex(0);
         cbAlteracoes.setSelectedIndex(0);
@@ -384,7 +386,7 @@ public class fmFichas extends javax.swing.JInternalFrame {
     private javax.swing.JButton btSalvar;
     private javax.swing.JComboBox cbAlteracoes;
     private javax.swing.JComboBox cbCancerFamilia;
-    private javax.swing.JComboBox cbData;
+    private com.toedter.calendar.JDateChooser cbData;
     private javax.swing.JComboBox cbHabitosAlimentares;
     private javax.swing.JComboBox cbMamografia;
     private javax.swing.JComboBox cbProtese;
