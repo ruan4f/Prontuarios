@@ -24,7 +24,7 @@ public class Ficha {
     private String sintomas;
     private String habitosAlimentares;
     private String cancerFamilia;
-    private boolean mamografia;
+    private String mamografia;
     private String protese;
     private String alteracaoMamilo;
     private String informacoes;
@@ -131,14 +131,14 @@ public class Ficha {
     /**
      * @return the mamografia
      */
-    public boolean isMamografia() {
+    public String getMamografia() {
         return mamografia;
     }
 
     /**
      * @param mamografia the mamografia to set
      */
-    public void setMamografia(boolean mamografia) {
+    public void setMamografia(String mamografia) {
         this.mamografia = mamografia;
     }
 
