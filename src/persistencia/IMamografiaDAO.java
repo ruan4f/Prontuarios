@@ -5,10 +5,18 @@
  */
 package persistencia;
 
+import java.util.List;
+import negocio.*;
+
 /**
  *
  * @author Ramon
  */
 public interface IMamografiaDAO {
     
+    public void adiciona(Mamografia mamografia);
+    public void altera(Mamografia mamografia);
+    public void remove(int id);
+    public List<Mamografia> listarTodos();
+    public Mamografia getByID(int id);
 }

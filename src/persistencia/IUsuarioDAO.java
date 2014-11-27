@@ -5,10 +5,18 @@
  */
 package persistencia;
 
+import java.util.List;
+import negocio.*;
+
 /**
  *
  * @author Ramon
  */
 public interface IUsuarioDAO {
     
+    public void adiciona(Usuario usuario);
+    public void altera(Usuario usuario);
+    public void remove(int id);
+    public List<Usuario> listarTodos();
+    public Usuario getByID(int id);
 }
