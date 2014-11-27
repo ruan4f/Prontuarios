@@ -12,6 +12,8 @@ package negocio;
  */
 public class Mamografia {
     //Declaração de Atributos
+    private long id;
+    private long idFicha;
     private String posicao;
     private String imagem;
     

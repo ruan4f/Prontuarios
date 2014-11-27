@@ -6,7 +6,9 @@
 
 package negocio;
 
-import java.util.Date;
+import java.util.Calendar;
+
+
 
 
 /**
@@ -15,7 +17,9 @@ import java.util.Date;
  */
 public class Ficha {
     //Declaração de Atributos
-    private Date data;
+    private long id;
+    private long idPaciente;
+    private Calendar data;
     private String queixas;
     private String sintomas;
     private String habitosAlimentares;

@@ -14,6 +14,7 @@ import java.util.Date;
  */
 public class Laudo {
     //Declaração de Atributos
+    private long id;
     private String medico;
     private Date data;
     private String impressao;
